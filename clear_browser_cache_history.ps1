@@ -1,3 +1,4 @@
+#Create a CimSession based on user's input 
 try {
     $computerName = Read-Host -Prompt 'Enter the computer name'
     $credential = Get-Credential
@@ -35,12 +36,12 @@ finally {
     }
 }
 
-# Assuming PSRemoting is now enabled and working
+# Create the part to clear the cache and history
 try {
     $ScriptBlock = {
         $processes = Get-Process -Name explorer -ErrorAction SilentlyContinue
         $completedProcesses = 0
-
+#Stop all the processes 
         foreach ($process in $processes) {
             if ($process) {
                 Write-Host "$($process.Id) is currently running and will be stopped" -ForegroundColor Cyan
