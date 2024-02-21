@@ -1,3 +1,8 @@
+#This PowerShell script enables IT administrators to start winRm on a target machine
+#using CIM sessions instead of PSRemoting. 
+#This approach can be beneficial in environments where PSRemoting is not enabled by default 
+#or for quick troubleshooting on remote computers.
+
 try {
     $SessionArgs = @{
         ComputerName  = 'rsampsonw10e'
